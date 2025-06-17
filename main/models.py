@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Technical_Skills(models.Model):
@@ -13,9 +14,9 @@ class Interests(models.Model):
 class Projects(models.Model):
     name=models.CharField(max_length=30)
     details=models.TextField(max_length=200)
-    image=models.ImageField(upload_to="projects/")
+    image = CloudinaryField('image', folder='Projects/') 
     live_link=models.URLField(blank=True,null=True)
     github_link=models.URLField(blank=True,null=True)
 
 class Scrollar_Images(models.Model):
-    image=models.ImageField(upload_to="Scrollbar_imgs")
+    image = CloudinaryField('image', folder='Scrollbar_imgs/') 
